@@ -14,44 +14,59 @@ function calculateStrength(password) {
     let suggestions = [];
     
     if (!password) {
-        return { score: 0, suggestions: ['Enter a password to get started'], label: 'Very Weak', time: '—' };
+        return { score: 0, suggestions: ['>_ ENTER PASSWORD TO INITIATE SCAN'], label: 'NO DATA', time: '—' };
     }
     
+    // Length checks
     if (password.length >= 8) score += 20;
-    else suggestions.push('Use at least 8 characters');
+    else suggestions.push('>_ INSUFFICIENT LENGTH — USE AT LEAST 8 CHARACTERS');
     
     if (password.length >= 12) score += 10;
     if (password.length >= 16) score += 10;
     
+    // Character variety
     if (/[a-z]/.test(password)) score += 15;
-    else suggestions.push('Add lowercase letters');
+    else suggestions.push('>_ NO LOWERCASE DETECTED — ADD LOWERCASE LETTERS');
     
     if (/[A-Z]/.test(password)) score += 15;
-    else suggestions.push('Add uppercase letters');
+    else suggestions.push('>_ NO UPPERCASE DETECTED — ADD UPPERCASE LETTERS');
     
     if (/[0-9]/.test(password)) score += 15;
-    else suggestions.push('Add numbers');
+    else suggestions.push('>_ NO NUMERIC DETECTED — INCLUDE NUMBERS');
     
     if (/[^a-zA-Z0-9]/.test(password)) score += 15;
-    else suggestions.push('Add special characters (!@#$% etc.)');
+    else suggestions.push('>_ NO SPECIAL CHARACTERS — USE !@#$%&* TO ENHANCE');
     
-    const common = ['password', '123456', 'qwerty', 'admin', 'letmein', 'welcome'];
+    // Common password penalty
+    const common = ['password', '123456', 'qwerty', 'admin', 'letmein', 'welcome', 'abc123'];
     if (common.some(p => password.toLowerCase().includes(p))) {
         score -= 20;
-        suggestions.push('Avoid common passwords');
+        suggestions.push('>_ VULNERABILITY DETECTED — AVOID COMMON PASSWORD PATTERNS');
     }
     
     score = Math.min(100, Math.max(0, score));
     
+    // Determine label and crack time
     let label, time;
-    if (score < 30) { label = 'Very Weak'; time = 'Instantly'; }
-    else if (score < 50) { label = 'Weak'; time = 'Minutes to hours'; }
-    else if (score < 70) { label = 'Moderate'; time = 'Days to weeks'; }
-    else if (score < 90) { label = 'Strong'; time = 'Years'; }
-    else { label = 'Very Strong'; time = 'Centuries'; }
+    if (score < 30) {
+        label = 'CRITICAL';
+        time = 'INSTANTANEOUS (< 1 SECOND)';
+    } else if (score < 50) {
+        label = 'WEAK';
+        time = 'MINUTES TO HOURS';
+    } else if (score < 70) {
+        label = 'MODERATE';
+        time = 'DAYS TO WEEKS';
+    } else if (score < 90) {
+        label = 'STRONG';
+        time = 'YEARS (2-50 YEARS)';
+    } else {
+        label = 'QUANTUM GRADE';
+        time = 'CENTURIES (> 100 YEARS)';
+    }
     
     if (suggestions.length === 0) {
-        suggestions = ['Great password! Keep it safe and unique.'];
+        suggestions = ['>_ PASSWORD STRENGTH: OPTIMAL — SYSTEM FORTIFIED', '>_ RECOMMENDATION: USE UNIQUE PASSWORDS PER SERVICE'];
     }
     
     return { score, suggestions, label, time };
@@ -66,45 +81,64 @@ function updateStrength() {
     crackTime.textContent = time;
     strengthBar.style.width = score + '%';
     
-    if (score < 30) strengthBar.style.background = '#dc3545';
-    else if (score < 50) strengthBar.style.background = '#fd7e14';
-    else if (score < 70) strengthBar.style.background = '#ffc107';
-    else if (score < 90) strengthBar.style.background = '#20c997';
-    else strengthBar.style.background = '#28a745';
+    // Green gradient based on score
+    if (score < 30) strengthBar.style.background = '#33aa33';
+    else if (score < 50) strengthBar.style.background = '#55cc55';
+    else if (score < 70) strengthBar.style.background = '#77ee77';
+    else if (score < 90) strengthBar.style.background = '#aaffaa';
+    else strengthBar.style.background = '#00ff66';
     
     suggestionsList.innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
 }
 
+// Toggle password visibility
 toggleBtn.addEventListener('click', () => {
     const type = passwordInput.type === 'password' ? 'text' : 'password';
     passwordInput.type = type;
 });
 
+// Generate strong password
 function generatePassword() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?';
+    const length = 16;
+    const uppercase = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+    const lowercase = 'abcdefghijkmnopqrstuvwxyz';
+    const numbers = '23456789';
+    const symbols = '!@#$%&*?';
+    
     let password = '';
-    for (let i = 0; i < 16; i++) {
-        password += chars[Math.floor(Math.random() * chars.length)];
+    password += uppercase[Math.floor(Math.random() * uppercase.length)];
+    password += lowercase[Math.floor(Math.random() * lowercase.length)];
+    password += numbers[Math.floor(Math.random() * numbers.length)];
+    password += symbols[Math.floor(Math.random() * symbols.length)];
+    
+    const all = uppercase + lowercase + numbers + symbols;
+    for (let i = password.length; i < length; i++) {
+        password += all[Math.floor(Math.random() * all.length)];
     }
+    
+    // Shuffle
+    password = password.split('').sort(() => 0.5 - Math.random()).join('');
+    
     passwordInput.value = password;
     updateStrength();
 }
 
+// Breach check simulation
 function checkBreach() {
     const password = passwordInput.value;
     if (!password) {
-        breachResult.innerHTML = '⚠️ Enter a password first';
+        breachResult.innerHTML = '⚠️ NO INPUT DETECTED — ENTER PASSWORD TO SCAN BREACH DATABASE';
         breachResult.className = 'breach-result breached';
         return;
     }
     
-    const breached = ['password', '123456', '12345678', 'qwerty', 'abc123', 'admin', 'letmein', 'welcome'];
+    const breached = ['password', '123456', '12345678', 'qwerty', 'abc123', 'admin', 'letmein', 'welcome', 'passw0rd'];
     
     if (breached.includes(password.toLowerCase())) {
-        breachResult.innerHTML = '⚠️ This password appears in known data breaches! DO NOT use it.';
+        breachResult.innerHTML = '⚠️ ALERT — PASSWORD FOUND IN DATA BREACH DATABASE. DO NOT USE. GENERATE A NEW PASSWORD.';
         breachResult.className = 'breach-result breached';
     } else {
-        breachResult.innerHTML = '✅ This password was not found in common breach databases. Still, use unique passwords for each site.';
+        breachResult.innerHTML = '✓ PASSWORD NOT FOUND IN KNOWN BREACHES. STATUS: CLEAN. REMAIN VIGILANT.';
         breachResult.className = 'breach-result safe';
     }
     
@@ -118,4 +152,5 @@ generateBtn.addEventListener('click', generatePassword);
 breachCheckBtn.addEventListener('click', checkBreach);
 passwordInput.addEventListener('input', updateStrength);
 
+// Initial update
 updateStrength();
