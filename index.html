@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PassGuard | Password Strength Checker</title>
+    <title>Password Strength Detector | Cyber Security Tool</title>
     <meta name="description" content="Check your password strength in real-time. See how fast it can be hacked, get breach alerts, and generate secure passwords.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="scan-line"></div>
     <div class="container">
-        <div class="glow"></div>
+        <div class="glow-effect"></div>
         
         <div class="header">
-            <div class="shield-icon">🛡️</div>
-            <h1>PassGuard</h1>
-            <p class="tagline">Your digital fortress, one password at a time</p>
+            <div class="shield-icon">⚡</div>
+            <h1>PASSWORD STRENGTH <span class="glitch">DETECTOR</span></h1>
+            <p class="tagline">>_ SYSTEM READY — ANALYZE YOUR CRYPTOGRAPHIC FORTRESS</p>
         </div>
 
         <div class="input-wrapper">
             <div class="input-group">
-                <input type="password" id="password" placeholder="Enter your password..." autocomplete="off">
+                <label class="input-label">>_ ENCRYPTED INPUT</label>
+                <input type="password" id="password" placeholder="[ENTER PASSWORD]" autocomplete="off">
                 <button id="togglePassword" class="toggle-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
+                    <span>👁</span>
                 </button>
             </div>
         </div>
@@ -37,45 +36,45 @@
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-label">Strength Score</span>
+                    <span class="stat-label">[ STRENGTH SCORE ]</span>
                     <div class="stat-value">
                         <span id="scoreValue">0</span>
                         <span class="stat-unit">/100</span>
                     </div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-label">Crack Time</span>
+                    <span class="stat-label">[ CRACK TIME ]</span>
                     <div class="stat-value" id="crackTime">—</div>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-label">Security Level</span>
-                    <div class="stat-value" id="strengthLabel">Very Weak</div>
+                    <span class="stat-label">[ SECURITY LEVEL ]</span>
+                    <div class="stat-value" id="strengthLabel">VERY WEAK</div>
                 </div>
             </div>
         </div>
 
         <div class="suggestions" id="suggestions">
             <div class="suggestions-header">
-                <span>💡 Security Tips</span>
+                <span>>_ SECURITY PROTOCOL TIPS</span>
             </div>
             <ul id="suggestionsList">
-                <li>Enter a password to get personalized tips</li>
+                <li>>_ ENTER PASSWORD TO INITIATE SCAN</li>
             </ul>
         </div>
 
         <div class="action-buttons">
             <button id="generateBtn" class="btn btn-primary">
-                Generate Strong Password
+                [ GENERATE QUANTUM PASSWORD ]
             </button>
             <button id="breachCheckBtn" class="btn btn-secondary">
-                Check Breach Status
+                [ SCAN BREACH DATABASE ]
             </button>
         </div>
 
         <div id="breachResult" class="breach-result"></div>
 
         <footer>
-            <p>🔒 Your password never leaves this device. All checks happen locally in your browser.</p>
+            <p>>_ LOCAL SCAN ONLY — YOUR DATA NEVER LEAVES THIS TERMINAL</p>
         </footer>
     </div>
 
