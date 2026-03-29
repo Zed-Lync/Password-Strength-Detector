@@ -3,150 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy | Password Strength Detector</title>
+    <meta name="description" content="Privacy policy for Password Strength Detector. No data collection, no cookies, fully private security tool.">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Space Mono', monospace;
+            background: #0a0f0a;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
-        
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .privacy-card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 50px 40px;
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #222;
-            margin-bottom: 10px;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-        
-        h2 {
-            font-size: 22px;
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        p {
-            margin-bottom: 16px;
-            font-size: 16px;
-        }
-        
-        .last-updated {
-            color: #666;
-            font-size: 14px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-        
-        .button-container {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .back-button {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 14px 32px;
-            font-size: 16px;
-            font-weight: 600;
+            background: rgba(0, 20, 0, 0.85);
+            backdrop-filter: blur(8px);
             border-radius: 8px;
-            transition: all 0.3s ease;
-            border: none;
+            padding: 48px;
+            border: 1px solid #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
+        }
+        h1 {
+            color: #00ff66;
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 255, 100, 0.4);
+        }
+        .last-updated {
+            color: #5a9a5a;
+            font-size: 12px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #2a6a2a;
+            padding-bottom: 16px;
+        }
+        h2 {
+            color: #88ff88;
+            font-size: 18px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+        p, li {
+            color: #b8ffb8;
+            line-height: 1.7;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        ul {
+            margin-left: 24px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        a {
+            color: #00ff66;
+            text-decoration: none;
+            border-bottom: 1px dashed #00ff66;
+        }
+        a:hover {
+            color: #88ff88;
+            border-bottom-color: #88ff88;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 24px;
+            border: 1px solid #00ff66;
+            border-radius: 4px;
+            color: #00ff66;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.2s;
             cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,123,255,0.3);
+            background: transparent;
+            font-family: 'Space Mono', monospace;
         }
-        
-        .back-button:hover {
-            background-color: #0056b3;
+        .back-link:hover {
+            background: rgba(0, 255, 100, 0.1);
+            box-shadow: 0 0 12px rgba(0, 255, 100, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,123,255,0.4);
         }
-        
+        hr {
+            border-color: #2a6a2a;
+            margin: 24px 0;
+        }
         @media (max-width: 600px) {
-            .privacy-card {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 26px;
-            }
-            
-            .back-button {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
+            .container { padding: 28px; }
+            h1 { font-size: 22px; }
+            h2 { font-size: 16px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="privacy-card">
-            <h1>Privacy Policy</h1>
-            <div class="last-updated">Last Updated: March 29, 2026</div>
-            
-            <p>At [Your Website Name], we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
-            
-            <h2>Information We Collect</h2>
-            <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
-            <p><strong>Personal Data:</strong> While using our Site, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to your name, email address, phone number, and mailing address.</p>
-            
-            <h2>How We Use Your Information</h2>
-            <p>We use the information we collect to operate, maintain, and provide you with the features and functionality of our website. This includes:</p>
-            <p>- To personalize your experience on our site<br>
-            - To improve our website based on your feedback<br>
-            - To send periodic emails regarding your order or other products and services<br>
-            - To respond to customer service requests</p>
-            
-            <h2>Cookies and Tracking Technologies</h2>
-            <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. You can choose to disable cookies through your browser settings.</p>
-            
-            <h2>Third-Party Disclosure</h2>
-            <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, as long as those parties agree to keep this information confidential.</p>
-            
-            <h2>Data Security</h2>
-            <p>We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
-            
-            <h2>Your Consent</h2>
-            <p>By using our site, you consent to our privacy policy.</p>
-            
-            <h2>Changes to This Privacy Policy</h2>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
-            
-            <h2>Contact Us</h2>
-            <p>If you have questions or comments about this Privacy Policy, please contact us at: <strong>support@yourwebsite.com</strong></p>
-            
-            <div class="button-container">
-                <a href="index.html" class="back-button">
-                    ← Return to Main Page
-                </a>
-            </div>
-        </div>
+        <h1>>_ PRIVACY POLICY</h1>
+        <div class="last-updated">[ LAST UPDATED: JANUARY 2025 ]</div>
+
+        <h2>>_ DATA COLLECTION</h2>
+        <p>Password Strength Detector does NOT collect, store, transmit, or log any passwords or personal data. All password analysis happens entirely within your browser using JavaScript. No information ever leaves your device. There is no database, no server-side storage, and no tracking of your inputs.</p>
+
+        <h2>>_ COOKIES & TRACKING</h2>
+        <p>This website does not use cookies, local storage, or any tracking technologies by default. If Google AdSense is enabled in the future, Google may serve ads and use cookies according to their own policies. You can learn more at <a href="https://policies.google.com/technologies/ads" target="_blank">Google's Advertising Policy</a>.</p>
+
+        <h2>>_ THIRD-PARTY SERVICES</h2>
+        <p>Currently, Password Strength Detector operates independently with no third-party integrations. The tool is self-contained and does not rely on external APIs for password analysis. Future updates may include optional features, but any third-party service will be clearly disclosed.</p>
+
+        <h2>>_ YOUR RIGHTS</h2>
+        <p>Since no personal data is collected, there is nothing to access, modify, or delete. Your use of this tool is completely anonymous.</p>
+
+        <h2>>_ CHILDREN'S PRIVACY</h2>
+        <p>Password Strength Detector does not knowingly collect any information from children under 13. The tool is intended for general audiences and contains no harmful content.</p>
+
+        <hr>
+
+        <p style="font-size: 12px; color: #5a9a5a;">>_ This privacy policy is compliant with Google AdSense requirements and GDPR principles. No personal data is processed.</p>
+
+        <button onclick="goBack()" class="back-link">← BACK TO PASSWORD DETECTOR</button>
     </div>
+
+    <script>
+        function goBack() {
+            window.location.href = 'https://j71-procoder.github.io/Password-Strength-Detector/';
+        }
+    </script>
 </body>
 </html>
