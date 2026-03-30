@@ -8,11 +8,7 @@
     <meta name="robots" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Space Mono', monospace;
             background: #0a0f0a;
@@ -29,72 +25,21 @@
             border: 1px solid #00ff66;
             box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
         }
-        h1 {
-            color: #00ff66;
-            font-size: 28px;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(0, 255, 100, 0.4);
-        }
-        .tagline {
-            color: #5a9a5a;
-            font-size: 12px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid #2a6a2a;
-            padding-bottom: 16px;
-        }
-        h2 {
-            color: #88ff88;
-            font-size: 18px;
-            margin-top: 32px;
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-        }
-        p {
-            color: #b8ffb8;
-            line-height: 1.7;
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-        .feature-list {
-            margin: 20px 0 20px 24px;
-        }
-        .feature-list li {
-            color: #b8ffb8;
-            margin-bottom: 12px;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-        .highlight {
-            color: #00ff66;
-            font-weight: bold;
-        }
+        h1 { color: #00ff66; font-size: 28px; margin-bottom: 8px; }
+        .tagline { color: #5a9a5a; font-size: 12px; margin-bottom: 32px; border-bottom: 1px solid #2a6a2a; padding-bottom: 16px; }
+        h2 { color: #88ff88; font-size: 18px; margin-top: 32px; margin-bottom: 16px; }
+        p { color: #b8ffb8; line-height: 1.7; font-size: 14px; margin-bottom: 16px; }
+        .feature-list { margin: 20px 0 20px 24px; }
+        .feature-list li { color: #b8ffb8; margin-bottom: 12px; font-size: 14px; }
+        .highlight { color: #00ff66; font-weight: bold; }
         .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 12px 24px;
-            border: 1px solid #00ff66;
-            border-radius: 4px;
-            color: #00ff66;
-            text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 1px;
-            transition: all 0.2s;
+            display: inline-block; margin-top: 40px; padding: 12px 24px;
+            border: 1px solid #00ff66; border-radius: 4px; color: #00ff66;
+            text-decoration: none; font-size: 12px; transition: all 0.2s;
         }
-        .back-link:hover {
-            background: rgba(0, 255, 100, 0.1);
-            box-shadow: 0 0 12px rgba(0, 255, 100, 0.3);
-            transform: translateY(-2px);
-        }
-        hr {
-            border-color: #2a6a2a;
-            margin: 24px 0;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 28px; }
-            h1 { font-size: 22px; }
-            h2 { font-size: 16px; }
-        }
+        .back-link:hover { background: rgba(0, 255, 100, 0.1); transform: translateY(-2px); }
+        hr { border-color: #2a6a2a; margin: 24px 0; }
+        @media (max-width: 600px) { .container { padding: 28px; } h1 { font-size: 22px; } }
     </style>
 </head>
 <body>
@@ -116,27 +61,16 @@
         <p>Most people use weak passwords like "password123" or their pet's name. Hackers can crack these in seconds. This tool helps you understand what makes a password strong and gives you actionable tips to improve your security.</p>
 
         <h2>>_ IS IT PRIVATE?</h2>
-        <p><span class="highlight">100% private.</span> Your password never leaves your browser. No data is sent to any server. No tracking. No cookies. Everything happens locally on your device. You can disconnect from the internet and it still works.</p>
+        <p><span class="highlight">100% private.</span> Your password never leaves your browser. No data is sent to any server. No tracking. No cookies. Everything happens locally on your device.</p>
 
         <h2>>_ HOW DOES IT WORK?</h2>
-        <p>The tool uses a scoring system based on industry security standards:</p>
-        <ul class="feature-list">
-            <li>• Length: longer passwords = more points</li>
-            <li>• Complexity: uppercase, lowercase, numbers, symbols</li>
-            <li>• Common patterns: detects "password", "123456", "qwerty"</li>
-            <li>• Crack time estimates based on current hacking speeds</li>
-        </ul>
-
-        <h2>>_ WHO MADE THIS?</h2>
-        <p>This tool was created by a security enthusiast who believes everyone deserves to understand their digital safety. It's completely free, open source, and will never have paywalls.</p>
+        <p>The tool uses a scoring system based on industry security standards: length, complexity (uppercase, lowercase, numbers, symbols), and common password detection.</p>
 
         <h2>>_ DISCLAIMER</h2>
         <p>This tool provides estimates based on password complexity rules. No password checker can guarantee 100% security. Always use unique passwords for different accounts and consider using a password manager.</p>
 
         <hr>
-
         <p style="font-size: 12px; color: #5a9a5a;">>_ MADE WITH ⚡ FOR A SAFER INTERNET</p>
-
         <a href="index.html" class="back-link">← BACK TO PASSWORD DETECTOR</a>
     </div>
 </body>
