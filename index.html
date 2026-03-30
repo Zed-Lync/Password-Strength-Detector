@@ -27,6 +27,15 @@
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Analytics (Replace G-XXXXXXXXXX with your actual Measurement ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <div class="scan-line"></div>
@@ -92,6 +101,18 @@
         </div>
 
         <div id="breachResult" class="breach-result"></div>
+
+        <!-- RECOMMENDED PASSWORD MANAGERS SECTION -->
+        <div class="recommendations" style="margin-top: 24px; padding: 16px; background: rgba(0,30,0,0.5); border-radius: 8px; border: 1px dashed #00ff66;">
+            <p style="color: #00ff66; font-size: 12px; margin-bottom: 12px;">>_ RECOMMENDED PASSWORD MANAGERS:</p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+                <a href="https://bitwarden.com" target="_blank" style="color: #88ff88; text-decoration: none;">🔐 Bitwarden (Free & Open Source)</a>
+                <a href="https://1password.com" target="_blank" style="color: #88ff88; text-decoration: none;">🔐 1Password (14-day trial)</a>
+                <a href="https://nordpass.com" target="_blank" style="color: #88ff88; text-decoration: none;">🔐 NordPass</a>
+                <a href="https://www.dashlane.com" target="_blank" style="color: #88ff88; text-decoration: none;">🔐 Dashlane</a>
+            </div>
+            <p style="font-size: 10px; color: #5a9a5a; margin-top: 12px;">>_ These are affiliate links. If you sign up, I may earn a commission at no extra cost to you. Using a password manager is the #1 way to stay secure online.</p>
+        </div>
 
         <footer>
             <p>>_ LOCAL SCAN ONLY — YOUR DATA NEVER LEAVES THIS TERMINAL | <a href="privacy.html" style="color: #00ff66; text-decoration: none;">[ PRIVACY ]</a> | <a href="about.html" style="color: #00ff66; text-decoration: none;">[ ABOUT ]</a></p>
@@ -337,11 +358,9 @@
         const userInput = document.getElementById('aiUserInput');
         const chatMessages = document.getElementById('aiChatMessages');
 
-        // Smart responses for password questions
         function getAIReponse(question) {
             const q = question.toLowerCase();
             
-            // Password creation advice
             if (q.includes('how to create') || q.includes('make a strong') || q.includes('good password')) {
                 return ">_ Create a strong password with: 12+ characters, mix of uppercase/lowercase, numbers, and symbols. Avoid personal info. Use a passphrase like 'Blue-Fish-Coffee-42!' instead of a single word.";
             }
@@ -352,7 +371,7 @@
                 return ">_ Use symbols like ! @ # $ % & * ? to increase complexity. Avoid common substitutions like '@' for 'a' — hackers know those tricks.";
             }
             else if (q.includes('password manager')) {
-                return ">_ A password manager (like Bitwarden, 1Password, or LastPass) stores and generates strong passwords. You only need to remember one master password. Highly recommended!";
+                return ">_ A password manager (like Bitwarden, 1Password, or NordPass) stores and generates strong passwords. You only need to remember one master password. Highly recommended! Check the links below for free trials.";
             }
             else if (q.includes('common password') || q.includes('avoid')) {
                 return ">_ Never use: 'password', '123456', 'qwerty', your name, birthday, or any word in the dictionary. Hackers try these first.";
