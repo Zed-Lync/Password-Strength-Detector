@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Blog | Password Strength Detector</title>
+    <meta name="description" content="Learn about password security, common mistakes, and how to stay safe online. Expert tips and real breach data.">
+    <meta name="robots" content="index, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Mono', monospace;
+            background: #0a0f0a;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 20, 0, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 48px;
+            border: 1px solid #00ff66;
+            box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
+        }
+        h1 { color: #00ff66; font-size: 28px; margin-bottom: 8px; }
+        .tagline { color: #5a9a5a; font-size: 12px; margin-bottom: 32px; border-bottom: 1px solid #2a6a2a; padding-bottom: 16px; }
+        .blog-list { list-style: none; }
+        .blog-item {
+            margin-bottom: 32px;
+            padding: 20px;
+            border: 1px solid #2a6a2a;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .blog-item:hover {
+            border-color: #00ff66;
+            transform: translateX(4px);
+        }
+        .blog-title {
+            color: #00ff66;
+            font-size: 20px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .blog-title:hover { text-decoration: underline; }
+        .blog-excerpt { color: #b8ffb8; font-size: 14px; line-height: 1.5; margin-bottom: 12px; }
+        .blog-date { color: #5a9a5a; font-size: 11px; }
+        .back-link {
+            display: inline-block; margin-top: 40px; padding: 12px 24px;
+            border: 1px solid #00ff66; border-radius: 4px; color: #00ff66;
+            text-decoration: none; font-size: 12px; transition: all 0.2s;
+        }
+        .back-link:hover { background: rgba(0, 255, 100, 0.1); transform: translateY(-2px); }
+        hr { border-color: #2a6a2a; margin: 24px 0; }
+        @media (max-width: 600px) { .container { padding: 28px; } h1 { font-size: 22px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>>_ SECURITY BLOG</h1>
+        <div class="tagline">[ LATEST ARTICLES ON PASSWORD SECURITY ]</div>
+
+        <ul class="blog-list">
+            <li class="blog-item">
+                <a href="blog/common-passwords.html" class="blog-title">🔓 10 Most Common Passwords (And Why They're Dangerous)</a>
+                <p class="blog-excerpt">"123456" takes less than a second to crack. See the full list and why hackers love them.</p>
+                <span class="blog-date">>_ POSTED: MARCH 2025 | 5 MIN READ</span>
+            </li>
+            <li class="blog-item">
+                <a href="blog/how-password-detectors-work.html" class="blog-title">⚙️ How Password Strength Detectors Actually Work</a>
+                <p class="blog-excerpt">Behind the scenes of your password checker — entropy, brute force, and the math of security.</p>
+                <span class="blog-date">>_ POSTED: MARCH 2025 | 6 MIN READ</span>
+            </li>
+            <li class="blog-item">
+                <a href="blog/password-manager-vs-browser.html" class="blog-title">🔐 Password Manager vs. Browser Autofill: What's Safer?</a>
+                <p class="blog-excerpt">Chrome saves your passwords — but is it secure? We compare features, encryption, and risks.</p>
+                <span class="blog-date">>_ POSTED: MARCH 2025 | 7 MIN READ</span>
+            </li>
+            <li class="blog-item">
+                <a href="blog/never-reuse-passwords.html" class="blog-title">⚠️ Why You Should Never Reuse Passwords (With Real Breach Data)</a>
+                <p class="blog-excerpt">One breached site = all your accounts compromised. Real examples from major data leaks.</p>
+                <span class="blog-date">>_ POSTED: MARCH 2025 | 8 MIN READ</span>
+            </li>
+        </ul>
+
+        <hr>
+        <a href="index.html" class="back-link">← BACK TO PASSWORD DETECTOR</a>
+    </div>
+</body>
+</html>
