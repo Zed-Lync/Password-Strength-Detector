@@ -10,12 +10,12 @@
     <meta name="keywords" content="password strength checker, password tester, security tool, password generator, check password strength, how secure is my password, cyber security tool, password analyzer, breach checker">
     <meta name="author" content="Password Strength Detector">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://j71-procoder.github.io/Password-Strength-Detector/">
+    <link rel="canonical" href="https://zed-lync.github.io/Password-Strength-Detector/">
     
     <!-- Open Graph (for Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="Password Strength Detector | Free Security Tool">
     <meta property="og:description" content="Check if your password can be hacked in seconds. Free, private, and secure. Get your password strength score and crack time instantly.">
-    <meta property="og:url" content="https://j71-procoder.github.io/Password-Strength-Detector/">
+    <meta property="og:url" content="https://zed-lync.github.io/Password-Strength-Detector/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Password Strength Detector">
     
@@ -99,6 +99,7 @@
     </div>
 
     <script src="script.js"></script>
+
     <!-- AI Password Assistant Floating Icon -->
     <div id="aiAssistant" class="ai-assistant">
         <div class="ai-icon" id="aiIcon">
@@ -389,14 +390,12 @@
             addMessage(question, true);
             userInput.value = '';
             
-            // Simulate typing delay
             setTimeout(() => {
                 const response = getAIReponse(question);
                 addMessage(response, false);
             }, 300);
         }
 
-        // Event listeners
         aiIcon.addEventListener('click', () => {
             aiChatWindow.classList.toggle('open');
         });
@@ -413,7 +412,6 @@
             }
         });
 
-        // Optional: Welcome message when first opened
         let firstOpen = true;
         aiIcon.addEventListener('click', () => {
             if (firstOpen && aiChatWindow.classList.contains('open')) {
@@ -423,5 +421,6 @@
                 firstOpen = false;
             }
         });
-    </script></body>
+    </script>
+</body>
 </html>
