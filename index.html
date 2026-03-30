@@ -99,5 +99,329 @@
     </div>
 
     <script src="script.js"></script>
-</body>
+    <!-- AI Password Assistant Floating Icon -->
+    <div id="aiAssistant" class="ai-assistant">
+        <div class="ai-icon" id="aiIcon">
+            <span>🤖</span>
+        </div>
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <span>>_ PASSWORD ASSISTANT v1.0</span>
+                <button id="closeChat" class="close-chat">✕</button>
+            </div>
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="ai-message">
+                    <span class="ai-bubble">>_ Hello! I'm your password security assistant. Ask me anything about creating strong passwords! 🔐</span>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" id="aiUserInput" placeholder="Type your question..." autocomplete="off">
+                <button id="sendMessage">SEND</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* AI Assistant Floating Icon */
+        .ai-assistant {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .ai-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #00aa33, #00ff66);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 255, 100, 0.5);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: pulseGlow 2s infinite;
+        }
+
+        .ai-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 255, 100, 0.8);
+        }
+
+        .ai-icon span {
+            font-size: 28px;
+            filter: drop-shadow(0 0 5px #000);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 100, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(0, 255, 100, 0.8); }
+        }
+
+        .ai-chat-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            height: 450px;
+            background: rgba(10, 20, 10, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid #00ff66;
+            border-radius: 12px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 0 40px rgba(0, 255, 100, 0.2);
+            overflow: hidden;
+        }
+
+        .ai-chat-window.open {
+            display: flex;
+        }
+
+        .ai-chat-header {
+            background: rgba(0, 30, 0, 0.9);
+            padding: 12px 16px;
+            border-bottom: 1px solid #00ff66;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #00ff66;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: #ff6666;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: monospace;
+        }
+
+        .close-chat:hover {
+            color: #ff0000;
+        }
+
+        .ai-chat-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ai-message, .user-message {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .ai-message {
+            justify-content: flex-start;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .ai-bubble {
+            background: rgba(0, 50, 0, 0.8);
+            border-left: 2px solid #00ff66;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #b8ffb8;
+            max-width: 85%;
+            word-wrap: break-word;
+            font-family: monospace;
+            line-height: 1.5;
+        }
+
+        .user-bubble {
+            background: rgba(0, 100, 0, 0.6);
+            border-right: 2px solid #88ff88;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #ffffff;
+            max-width: 85%;
+            word-wrap: break-word;
+            font-family: monospace;
+        }
+
+        .ai-chat-input {
+            padding: 12px;
+            border-top: 1px solid #2a6a2a;
+            display: flex;
+            gap: 8px;
+        }
+
+        .ai-chat-input input {
+            flex: 1;
+            background: #051005;
+            border: 1px solid #2a6a2a;
+            border-radius: 20px;
+            padding: 8px 12px;
+            color: #00ff66;
+            font-family: monospace;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .ai-chat-input input:focus {
+            border-color: #00ff66;
+        }
+
+        .ai-chat-input button {
+            background: transparent;
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 10px;
+            transition: all 0.2s;
+        }
+
+        .ai-chat-input button:hover {
+            background: rgba(0, 255, 100, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar styling */
+        .ai-chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .ai-chat-messages::-webkit-scrollbar-track {
+            background: #1a2a1a;
+        }
+
+        .ai-chat-messages::-webkit-scrollbar-thumb {
+            background: #00ff66;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 500px) {
+            .ai-chat-window {
+                width: 280px;
+                height: 400px;
+                right: -10px;
+            }
+            .ai-icon {
+                width: 48px;
+                height: 48px;
+            }
+            .ai-icon span {
+                font-size: 24px;
+            }
+        }
+    </style>
+
+    <script>
+        // AI Password Assistant
+        const aiIcon = document.getElementById('aiIcon');
+        const aiChatWindow = document.getElementById('aiChatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const sendBtn = document.getElementById('sendMessage');
+        const userInput = document.getElementById('aiUserInput');
+        const chatMessages = document.getElementById('aiChatMessages');
+
+        // Smart responses for password questions
+        function getAIReponse(question) {
+            const q = question.toLowerCase();
+            
+            // Password creation advice
+            if (q.includes('how to create') || q.includes('make a strong') || q.includes('good password')) {
+                return ">_ Create a strong password with: 12+ characters, mix of uppercase/lowercase, numbers, and symbols. Avoid personal info. Use a passphrase like 'Blue-Fish-Coffee-42!' instead of a single word.";
+            }
+            else if (q.includes('how long') || q.includes('length')) {
+                return ">_ Minimum 12 characters is recommended. 16+ characters is even better. Every extra character makes it exponentially harder to crack.";
+            }
+            else if (q.includes('symbol') || q.includes('special')) {
+                return ">_ Use symbols like ! @ # $ % & * ? to increase complexity. Avoid common substitutions like '@' for 'a' — hackers know those tricks.";
+            }
+            else if (q.includes('password manager')) {
+                return ">_ A password manager (like Bitwarden, 1Password, or LastPass) stores and generates strong passwords. You only need to remember one master password. Highly recommended!";
+            }
+            else if (q.includes('common password') || q.includes('avoid')) {
+                return ">_ Never use: 'password', '123456', 'qwerty', your name, birthday, or any word in the dictionary. Hackers try these first.";
+            }
+            else if (q.includes('how often') || q.includes('change')) {
+                return ">_ Change passwords only if you suspect a breach. Regular changes often lead to weaker passwords. Use unique passwords per site instead.";
+            }
+            else if (q.includes('2fa') || q.includes('two factor') || q.includes('mfa')) {
+                return ">_ Enable 2FA/MFA whenever possible! It adds a second layer of security (like a code from your phone). Even if your password is stolen, hackers can't get in without the second factor.";
+            }
+            else if (q.includes('hack') || q.includes('crack')) {
+                return ">_ Hackers use 'brute force' (trying billions of combinations) and 'dictionary attacks'. Strong passwords with length and complexity defeat both methods.";
+            }
+            else if (q.includes('remember')) {
+                return ">_ Use a passphrase: pick 4 random words like 'correct-horse-battery-staple'. Easy to remember, very hard to crack. Or use a password manager!";
+            }
+            else {
+                return ">_ Here's the golden rule: Length > Complexity. A 16-character random password is best. Use a password manager to create and store them. Always enable 2FA when available. Stay safe! 🔐";
+            }
+        }
+
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isUser ? 'user-message' : 'ai-message';
+            const bubbleClass = isUser ? 'user-bubble' : 'ai-bubble';
+            messageDiv.innerHTML = `<div class="${bubbleClass}">${text}</div>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const question = userInput.value.trim();
+            if (!question) return;
+            
+            addMessage(question, true);
+            userInput.value = '';
+            
+            // Simulate typing delay
+            setTimeout(() => {
+                const response = getAIReponse(question);
+                addMessage(response, false);
+            }, 300);
+        }
+
+        // Event listeners
+        aiIcon.addEventListener('click', () => {
+            aiChatWindow.classList.toggle('open');
+        });
+
+        closeChat.addEventListener('click', () => {
+            aiChatWindow.classList.remove('open');
+        });
+
+        sendBtn.addEventListener('click', sendMessage);
+        
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Optional: Welcome message when first opened
+        let firstOpen = true;
+        aiIcon.addEventListener('click', () => {
+            if (firstOpen && aiChatWindow.classList.contains('open')) {
+                setTimeout(() => {
+                    addMessage(">_ Type 'how to create a strong password' or ask about password managers, 2FA, or security tips! 🤖", false);
+                }, 500);
+                firstOpen = false;
+            }
+        });
+    </script></body>
 </html>
